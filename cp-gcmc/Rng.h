@@ -14,7 +14,7 @@ class Rng {
 	// Wrapper for the std::random uniform rng.
 public:
 	int seed;
-	std::default_random_engine* generator;
+	std::mt19937_64* generator;
 	std::uniform_real_distribution<double>* distribution;
 
 	Rng();

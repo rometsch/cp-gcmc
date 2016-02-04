@@ -11,7 +11,7 @@
 Rng::Rng() {
 	// Initialize random number generator from std library to interval [0,1).
 	// Use 0 as default seed.
-	 this->generator = new std::default_random_engine();
+	 this->generator = new std::mt19937_64();
 	 this->distribution = new std::uniform_real_distribution<double>(0.0,1.0);
 	 this->seed = 0;
 	 this->generator->seed(0);
@@ -19,7 +19,7 @@ Rng::Rng() {
 
 Rng::Rng(int seed) {
 	// Initialize random number generator from std library to interval [0,1).
-	 this->generator = new std::default_random_engine();
+	 this->generator = new std::mt19937_64();
 	 this->distribution = new std::uniform_real_distribution<double>(0.0,1.0);
 	 this->generator->seed(seed);
 	 this->seed = seed;

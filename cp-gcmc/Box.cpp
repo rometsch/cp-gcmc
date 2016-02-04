@@ -65,8 +65,8 @@ void Box::insert_rod() {
 	else this->Nrodh++;
 	// Place rod at end of rod list.
 	this->rods.push_back(cand);
-	// Print success message.
-	std::cout << "Inserted rod at x=" << x << " , y=" << y << " with orientation " << otn << std::endl;
+//	// Print success message.
+//	std::cout << "Inserted rod at x=" << x << " , y=" << y << " with orientation " << otn << std::endl;
 }
 
 void Box::delete_rod() {
@@ -77,9 +77,10 @@ void Box::delete_rod() {
 		return;
 	}
 	// Get random index for rod to be deleted.
-	int n = this->rng.draw_between_int(0,this->Nrod);
+	int n = this->rng.draw_between_int(0,this->Nrod-1);
+//	std::cout << this->rods.size() << "\t" << n << std::endl;
 	// Get position and orientation of theselected rod.
-	Rod rod = this->rods[n];
+	Rod rod = this->rods.at(n);
 	// Update grid.
 	for (int i=0; i<this->Lrod; i++) {
 		this->set_grid(rod.x+rod.otn*i ,rod.y +(!rod.otn)*i , false);
