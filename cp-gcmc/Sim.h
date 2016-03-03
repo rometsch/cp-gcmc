@@ -22,26 +22,24 @@ public:
 	int step;		// number of steps to take a snapshot.
 	double z;		// Activity. exp(beta mu)
 
-	std::stringstream &out;
-
 	// Log vectors.
 	std::vector<long int> T;
 	std::vector<int> Nrod;
 	std::vector<int> Nh;
 	std::vector<int> Nv;
 
-	Sim(std::stringstream &out);
+	Sim();
 	virtual ~Sim();
 
-	void update_parameters(double z, long int Niter, int Ntherm, int M, int L, int steps);
+	void update_parameters(double z, long int Niter, int Ntherm, int M, int L, int step);
 
-	void run(double z, long int Niter, int Ntherm, int M, int L, int steps);
+	void run(double z, long int Niter, int Ntherm, int M, int L, int step);
 	void snapshot(long int i);
 
-	void print_data();
-	void print_header(std::string sep);
-	void print_position_horizontal();
-	void print_position_vertical();
+	void print_data(std::ostream &out);
+	void print_header(std::ostream &out, std::string sep);
+	void print_position_horizontal(std::ostream &out);
+	void print_position_vertical(std::ostream &out);
 };
 
 #endif /* SIM_H_ */
